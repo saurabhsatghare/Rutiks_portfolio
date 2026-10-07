@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rutik Satghare | MBA Marketing Portfolio</title>
+<meta name="description" content="Rutik Satghare's MBA Marketing portfolio featuring practical work, projects, research, certifications and creative work.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&family=Patrick+Hand&display=swap');
+
+:root{
+  --paper:#fbf7ee;
+  --paper2:#fffaf2;
+  --ink:#171717;
+  --muted:#55504b;
+  --red:#c91f2a;
+  --red2:#e84b53;
+  --pink:#ffd9dc;
+  --pink2:#ffe9e8;
+  --line:#e7ded3;
+  --white:#fffdf8;
+  --shadow:0 16px 45px rgba(60,35,20,.08);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",Arial,sans-serif;
+  color:var(--ink);
+  background:
+    linear-gradient(rgba(120,90,65,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(120,90,65,.045) 1px,transparent 1px),
+    var(--paper);
+  background-size:38px 38px;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:radial-gradient(circle at 75% 15%,rgba(255,191,196,.25),transparent 22%),
+             radial-gradient(circle at 10% 70%,rgba(255,220,210,.28),transparent 24%);
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1240px,calc(100% - 80px));margin:auto}
+.hand{font-family:"Patrick Hand",cursive;font-weight:400}
+.display{font-family:"Playfair Display",serif;text-transform:uppercase;letter-spacing:-.045em}
+.red{color:var(--red)}
+
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:50;
+  padding:20px 0;
+  transition:.3s ease;
+}
+header.scrolled{
+  background:rgba(251,247,238,.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  padding:12px 0;
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;gap:25px;
+}
+.logo{
+  font-family:Georgia,serif;font-weight:800;font-size:25px;color:var(--red);
+  white-space:nowrap;
+}
+.navlinks{display:flex;align-items:center;gap:25px;font-size:14px;font-weight:600}
+.navlinks a{position:relative;padding:7px 0}
+.navlinks a:after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--red);transition:.25s;
+}
+.navlinks a:hover:after,.navlinks a.active:after{width:100%}
+.connect{
+  display:flex;align-items:center;gap:13px;padding:11px 17px 11px 20px;
+  border:1px solid var(--line);border-radius:40px;background:rgba(255,255,255,.55);
+  font-weight:700;
+}
+.dot{width:28px;height:28px;border-radius:50%;background:var(--red);display:block}
+
+section{min-height:100vh;padding:125px 0 80px;position:relative}
+.hero{padding-top:150px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:55px;align-items:center}
+.eyebrow{font-size:18px;margin-bottom:10px}
+.hero h1{font-size:clamp(72px,10vw,145px);line-height:.78;margin-bottom:35px}
+.hero-title-dot{color:var(--red)}
+.badge{
+  display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);
+  background:rgba(255,255,255,.55);border-radius:30px;padding:10px 17px;
+  font-size:13px;font-weight:700;margin-bottom:25px;
+}
+.badge span{width:11px;height:11px;background:#f6b4ba;border-radius:50%}
+.hero-lead{font-size:25px;line-height:1.25;font-weight:700;max-width:670px}
+.hero-copy{font-size:17px;line-height:1.65;color:var(--muted);max-width:470px;margin-top:20px}
+.actions{display:flex;align-items:center;gap:25px;margin-top:35px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:16px 28px;border-radius:35px;background:var(--red);color:white;font-weight:700;
+  box-shadow:0 10px 25px rgba(201,31,42,.2);transition:.25s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(201,31,42,.27)}
+.linkedin{display:inline-flex;align-items:center;gap:10px;font-weight:700}
+.linkedin-icon{
+  width:34px;height:34px;border:1px solid #bbb;border-radius:50%;
+  display:grid;place-items:center;font-weight:800;background:white;
+}
+.hero-art{position:relative;min-height:620px;display:grid;place-items:center}
+.blob{
+  position:absolute;width:510px;height:560px;background:#ffc3c7;
+  border-radius:48% 52% 45% 55% / 39% 42% 58% 61%;
+  transform:rotate(7deg);
+}
+.hero-photo{
+  position:relative;width:min(450px,75%);z-index:2;filter:drop-shadow(0 25px 25px rgba(0,0,0,.12));
+  border-radius:30px;
+  object-fit:cover;aspect-ratio:4/5;
+}
+.note{
+  position:absolute;z-index:4;right:0;top:25%;width:210px;padding:25px;
+  background:#fffdf5;border:1px solid #cfc5b9;transform:rotate(4deg);
+  box-shadow:var(--shadow);font-family:"Patrick Hand",cursive;font-size:22px;
+}
+.note:before{content:"";position:absolute;top:-12px;left:35%;width:80px;height:24px;background:#dfc39e;opacity:.75;transform:rotate(-3deg)}
+.note strong{color:var(--red)}
+.arrow{position:absolute;right:18%;top:11%;font-size:55px;transform:rotate(-15deg)}
+.hero-small{
+  position:absolute;left:3%;bottom:3%;max-width:190px;color:var(--red);
+  font-weight:800;line-height:1.2;
+}
+
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:55px}
+.kicker{font-size:17px;margin-bottom:2px}
+.section-title{font-size:clamp(55px,7vw,95px);line-height:.9}
+.section-desc{max-width:480px;color:var(--muted);font-size:17px;line-height:1.6}
+
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.about-photo{
+  width:100%;max-width:480px;aspect-ratio:4/5;object-fit:cover;border-radius:35px;
+  box-shadow:var(--shadow);border:1px solid var(--line);
+}
+.about-copy h3{font-size:34px;margin-bottom:20px}
+.about-copy p{font-size:18px;line-height:1.75;color:var(--muted);margin-bottom:17px}
+.fact-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.fact{padding:10px 15px;border-radius:25px;background:var(--pink2);font-size:14px;font-weight:700}
+
+.edu-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:75px;align-items:start}
+.edu-intro{position:sticky;top:120px}
+.edu-intro p{font-size:18px;line-height:1.6;color:var(--muted);max-width:400px;margin-top:30px}
+.edu-timeline{border-left:3px solid var(--red);padding-left:28px}
+.edu-item{position:relative;padding:0 0 30px}
+.edu-item:before{content:"";position:absolute;left:-40px;top:13px;width:16px;height:16px;background:var(--red);border-radius:50%;border:5px solid var(--paper)}
+.edu-card{
+  padding:28px 30px;border:1px solid var(--line);border-radius:24px;background:rgba(255,253,248,.7);
+  box-shadow:0 8px 25px rgba(60,35,20,.04);
+}
+.edu-year{font-weight:800;color:var(--red);font-size:18px}
+.edu-card h3{font-size:24px;margin:7px 0}
+.edu-card p{color:var(--muted);line-height:1.55}
+.tag{display:inline-block;margin-top:12px;padding:7px 12px;background:var(--pink);color:var(--red);border-radius:20px;font-size:12px;font-weight:800}
+
+.journey-line{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.journey-line:before{content:"";position:absolute;top:68px;left:4%;right:4%;height:2px;background:#d9cfc4}
+.journey-item{position:relative}
+.journey-num{font-size:22px;font-weight:800;color:var(--red);margin-bottom:14px}
+.journey-icon{width:68px;height:68px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-size:28px;border:4px solid var(--paper);position:relative;z-index:2}
+.journey-card{
+  margin-top:25px;padding:23px;border:1px solid var(--line);border-radius:22px;background:rgba(255,253,248,.82);
+  min-height:190px;
+}
+.journey-card h3{font-size:18px;margin-bottom:10px}
+.journey-card p{font-size:14px;line-height:1.55;color:var(--muted)}
+
+.experience-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.exp-card{
+  padding:30px;border:1px solid var(--line);border-radius:28px;background:rgba(255,253,248,.78);
+  transition:.3s;position:relative;overflow:hidden;
+}
+.exp-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.exp-card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:var(--pink);right:-50px;bottom:-60px;z-index:-1}
+.exp-top{display:flex;justify-content:space-between;gap:20px;align-items:start}
+.exp-icon{font-size:28px;width:58px;height:58px;background:var(--pink);border-radius:18px;display:grid;place-items:center}
+.exp-card h3{font-size:24px;margin:18px 0 5px}
+.exp-card .meta{color:var(--red);font-weight:700;font-size:13px}
+.exp-card ul{padding-left:19px;margin-top:15px;color:var(--muted)}
+.exp-card li{margin:9px 0;line-height:1.5}
+
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
+.project-card{
+  min-height:310px;padding:35px;border:1px solid var(--line);border-radius:30px;background:var(--white);
+  position:relative;overflow:hidden;transition:.3s;
+}
+.project-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.project-number{font-family:"Playfair Display",serif;font-size:60px;color:#efc8c9}
+.project-card h3{font-size:27px;margin:8px 0 12px;max-width:600px}
+.project-card p{color:var(--muted);line-height:1.65;max-width:650px}
+.metric-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}.metric-strip div{border:1px solid var(--line);padding:20px 18px;background:rgba(255,255,255,.42)}.metric-strip strong{display:block;font-size:2rem;line-height:1;color:var(--red);font-weight:800}.metric-strip span{display:block;margin-top:8px;color:var(--muted);font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}@media(max-width:800px){.metric-strip{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.metric-strip{grid-template-columns:1fr}}
+
+.project-type{display:inline-block;margin-top:22px;color:var(--red);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.project-arrow{position:absolute;right:25px;bottom:22px;width:45px;height:45px;border-radius:50%;background:var(--red);color:white;display:grid;place-items:center;font-size:20px}
+
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cert{
+  padding:25px;border:1px solid var(--line);border-radius:24px;background:rgba(255,253,248,.78);
+  min-height:165px;transition:.25s;
+}
+.cert:hover{background:var(--pink2);transform:translateY(-4px)}
+.cert .small{color:var(--red);font-size:12px;font-weight:800;text-transform:uppercase}
+.cert h3{font-size:19px;margin-top:12px;line-height:1.35}
+.cert p{font-size:14px;color:var(--muted);margin-top:8px}
+
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.panel{padding:32px;border:1px solid var(--line);border-radius:28px;background:rgba(255,253,248,.8)}
+.panel h3{font-size:28px;margin-bottom:22px}
+.clean-list{list-style:none}
+.clean-list li{padding:15px 0;border-bottom:1px solid var(--line);line-height:1.5;color:var(--muted)}
+.clean-list li:last-child{border-bottom:0}
+.clean-list strong{color:var(--ink)}
+.achievement{
+  display:flex;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)
+}
+.achievement:last-child{border:0}
+.ach-num{font-family:"Playfair Display",serif;font-size:34px;color:var(--red);min-width:55px}
+.achievement p{color:var(--muted);line-height:1.45}
+
+.skills-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.skills-intro p{color:var(--muted);line-height:1.65;font-size:18px;margin-top:25px}
+.skill-cloud{display:flex;flex-wrap:wrap;gap:13px}
+.skill{
+  border:1px solid #d9cfc4;border-radius:40px;padding:14px 18px;background:white;
+  font-weight:700;transition:.2s
+}
+.skill:hover{background:var(--red);color:white;border-color:var(--red);transform:rotate(-2deg)}
+
+.moments-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.moment-card{border:1px solid var(--line);border-radius:24px;background:rgba(255,253,248,.8);box-shadow:var(--shadow);overflow:hidden}
+.moment-photo{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.moment-caption{padding:18px 20px}
+.moment-caption p{font-size:14.5px;line-height:1.55;color:var(--muted)}
+.creative-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;grid-auto-rows:230px;gap:15px}
+.work-img{
+  width:100%;height:100%;object-fit:cover;border-radius:24px;border:1px solid var(--line);
+  background:#f0e7dc;
+}
+.creative-grid .large{grid-row:span 2}
+.work-placeholder{
+  width:100%;height:100%;border-radius:24px;border:1px dashed #c9bdb0;
+  display:grid;place-items:center;text-align:center;padding:25px;color:var(--muted);background:#fffaf2;
+}
+.work-placeholder span{display:block;color:var(--red);font-weight:800;margin-bottom:5px}
+
+.contact{
+  min-height:80vh;display:grid;place-items:center;text-align:center;
+}
+.contact h2{font-size:clamp(65px,10vw,135px);line-height:.82}
+.contact p{max-width:600px;margin:25px auto;color:var(--muted);font-size:18px;line-height:1.6}
+.contact-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:28px}
+.contact-link{padding:14px 20px;border:1px solid var(--line);border-radius:30px;background:white;font-weight:700}
+.contact-link:hover{border-color:var(--red);color:var(--red)}
+footer{padding:25px 0 35px;border-top:1px solid var(--line);color:#716a63;font-size:13px}
+.footer-flex{display:flex;justify-content:space-between;gap:20px}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+
+.mobile-toggle{display:none;border:0;background:none;font-size:27px;cursor:pointer}
+
+@media(max-width:1050px){
+  .container{width:min(920px,calc(100% - 40px))}
+  .navlinks{gap:14px;font-size:12px}
+  .hero-grid,.about-grid,.edu-layout,.skills-wrap{grid-template-columns:1fr}
+  .edu-intro{position:static}
+  .hero-art{min-height:540px}
+  .journey-line{grid-template-columns:repeat(2,1fr);gap:35px}
+  .journey-line:before{display:none}
+  .cert-grid{grid-template-columns:repeat(2,1fr)}
+  .moments-grid{grid-template-columns:1fr 1fr}
+  .creative-grid{grid-template-columns:1fr 1fr}
+  .creative-grid .large{grid-row:span 1}
+}
+@media(max-width:760px){
+  section{padding:105px 0 65px}
+  .container{width:calc(100% - 30px)}
+  header{padding:13px 0}
+  .mobile-toggle{display:block}
+  .navlinks{
+    position:absolute;top:67px;left:15px;right:15px;display:none;flex-direction:column;align-items:stretch;
+    padding:18px;background:rgba(255,253,248,.97);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)
+  }
+  .navlinks.open{display:flex}
+  .connect{display:none}
+  .hero{padding-top:110px}
+  .hero h1{font-size:76px}
+  .hero-lead{font-size:20px}
+  .hero-art{min-height:490px}
+  .blob{width:310px;height:390px}
+  .hero-photo{width:72%;height:390px}
+  .note{width:150px;font-size:17px;padding:17px;right:0}
+  .arrow{right:10%;font-size:40px}
+  .hero-small{font-size:13px;left:0}
+  .section-head{display:block;margin-bottom:35px}
+  .section-desc{margin-top:20px}
+  .section-title{font-size:58px}
+  .experience-grid,.project-grid,.split-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:1fr}
+  .journey-line{grid-template-columns:1fr}
+  .moments-grid{grid-template-columns:1fr}
+  .creative-grid{grid-template-columns:1fr;grid-auto-rows:250px}
+  .footer-flex{display:block}
+  .footer-flex div+div{margin-top:10px}
+}
+
+.experience-visuals{display:grid;grid-template-columns:1.25fr .8fr 1.25fr .8fr;gap:14px;margin-top:22px}
+.experience-visuals img{width:100%;height:220px;object-fit:cover;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--white)}
+@media(max-width:900px){.experience-visuals{grid-template-columns:1fr 1fr}.experience-visuals img{height:180px}}
+@media(max-width:560px){.experience-visuals{grid-template-columns:1fr}.experience-visuals img{height:210px}}
+
+.visual-group{margin-top:30px}.visual-label{font-size:13px;font-weight:800;letter-spacing:.08em;margin:0 0 12px;color:var(--muted)}.visual-label span{color:var(--red);margin-right:8px}.social-gallery{grid-template-columns:repeat(4,1fr)}.work-gallery{grid-template-columns:repeat(3,1fr)}.work-gallery img{height:230px}@media(max-width:900px){.social-gallery,.work-gallery{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.social-gallery,.work-gallery{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a class="logo" href="#home">RUTIK SATGHARE</a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+    <nav class="navlinks" id="navlinks">
+      <a href="#about">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#journey">My Journey</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#moments">Moments</a>
+    </nav>
+    <a class="connect" href="#contact">Let's Connect <span class="dot"></span></a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="hand eyebrow">HELLO...!</div>
+      <div class="badge"><span></span> MBA MARKETING STUDENT</div>
+      <h1 class="display">I'M<br>RUTIK<span class="hero-title-dot">.</span></h1>
+      <p class="hero-lead">I love creating content, exploring ideas, managing social media and working on brands.</p>
+      <p class="hero-copy">I like turning ideas into something people can see, understand and remember.</p>
+      <div class="actions">
+        <a class="btn" href="#experience">Explore My Work</a>
+        <a class="linkedin" href="https://www.linkedin.com/in/rutiksatghare/" target="_blank" rel="noopener">Find me on <span class="linkedin-icon">in</span></a>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <div class="blob"></div>
+      <!-- Replace images/hero.png with your actual photo -->
+      <img class="hero-photo" src="images/hero.png" alt="Rutik Satghare">
+      <div class="arrow hand">↝</div>
+      <div class="note"><strong>Stuff I Can Actually Do</strong><br><br>
+        Social Media<br>Digital Branding<br>Content Strategy<br>Creative Ideas
+      </div>
+      <div class="hero-small">Not an expert yet.<br>Just someone who likes actually doing the work.</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <img class="about-photo" src="images/about-formal.jpeg" alt="Rutik Satghare">
+    </div>
+    <div class="about-copy reveal">
+      <div class="hand kicker">02 — ABOUT ME</div>
+      <h2 class="display section-title">So, Who Is<br><span class="red">Rutik?</span></h2>
+      <p>I'm an MBA Marketing student at DYPIMS who likes exploring things beyond the classroom.</p>
+      <p>College has given me opportunities to try different things, take responsibility, work with people and figure out what genuinely interests me.</p>
+      <p>I’m curious by nature and usually prefer learning by doing rather than just reading about it.</p>
+      <div class="fact-row">
+        <span class="fact">MBA Marketing @ DYPIMS</span>
+        <span class="fact">Pune</span>
+        <span class="fact">Marketing & Brands</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container edu-layout">
+    <div class="edu-intro reveal">
+      <div class="hand kicker">03 — EDUCATION</div>
+      <h2 class="display section-title">My<br>Academics</h2>
+      <p>Commerce gave me the base. My MBA is where I started looking at business from a marketing perspective.</p>
+    </div>
+    <div class="edu-timeline reveal">
+      <div class="edu-item">
+        <div class="edu-card">
+          <div class="edu-year">2026 — PRESENT</div>
+          <h3>MBA • MARKETING</h3>
+          <p>Dr. D. Y. Patil Institute of Management Studies, Pune</p>
+          <span class="tag">Currently Pursuing</span>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-card">
+          <div class="edu-year">2024</div>
+          <h3>B.COM • COMMERCE</h3>
+          <p>Vidya Vikas Arts, Commerce & Science College, Samudrapur, Wardha</p>
+          <span class="tag">8.56 GPA • DISTINCTION</span>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-card">
+          <div class="edu-year">2021</div>
+          <h3>HSC</h3>
+          <p>Amolakchand Mahavidyalaya, Yavatmal</p>
+          <span class="tag">90.83%</span>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-card">
+          <div class="edu-year">2019</div>
+          <h3>SSC</h3>
+          <p>Bharat Vidyalaya, Hinganghat</p>
+          <span class="tag">76.00%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="hand kicker">04 — MY JOURNEY</div>
+        <h2 class="display section-title">My<br>Journey<span class="red">.</span></h2>
+      </div>
+      <p class="section-desc">From learning marketing in class to actually trying it through content, events, social media and brand work.</p>
+    </div>
+
+    <div class="journey-line">
+      <div class="journey-item reveal">
+        <div class="journey-num">01</div><div class="journey-icon">◌</div>
+        <div class="journey-card"><h3>Started MBA</h3><p>Began exploring marketing, brands and how businesses connect with people.</p></div>
+      </div>
+      <div class="journey-item reveal">
+        <div class="journey-num">02</div><div class="journey-icon">✦</div>
+        <div class="journey-card"><h3>Started Creating</h3><p>Got more involved in content, social media and communication through college initiatives.</p></div>
+      </div>
+      <div class="journey-item reveal">
+        <div class="journey-num">03</div><div class="journey-icon">◎</div>
+        <div class="journey-card"><h3>Worked on Campaigns</h3><p>Planned content and promotional communication for different audiences and activities.</p></div>
+      </div>
+      <div class="journey-item reveal">
+        <div class="journey-num">04</div><div class="journey-icon">↗</div>
+        <div class="journey-card"><h3>Events & Exposure</h3><p>Worked with speakers, business leaders, teams and live event environments.</p></div>
+      </div>
+      <div class="journey-item reveal">
+        <div class="journey-num">05</div><div class="journey-icon">□</div>
+        <div class="journey-card"><h3>Internship Experience</h3><p>Applied what I had learned through a 2 month Brand Management internship at IACSD.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="hand kicker">05 — EXPERIENCE</div>
+        <h2 class="display section-title">Things I've<br><span class="red">Actually Done.</span></h2>
+      </div>
+      <p class="section-desc">A mix of internship work, social media, TEDx, event promotions and college initiatives.</p>
+    </div>
+
+    <div class="experience-grid">
+      <article class="exp-card reveal">
+        <div class="exp-top"><div class="exp-icon">✦</div><span class="meta">2 MONTHS</span></div>
+        <h3>Brand Management Internship</h3>
+        <div class="meta">IACSD</div>
+        <ul>
+          <li>Managed social media accounts and created brand focused content.</li>
+          <li>Worked on promotional communication to support brand visibility.</li>
+          <li>Got practical exposure to educational branding and digital marketing.</li>
+        </ul>
+      </article>
+
+      <article class="exp-card reveal">
+        <div class="exp-top"><div class="exp-icon">◉</div><span class="meta">650K+ VIEWS</span></div>
+        <h3>TEDxDYPWS Youth 2026</h3>
+        <div class="meta">Social Media Team Lead</div>
+        <ul>
+          <li>Planned and executed promotional content before and during the event.</li>
+          <li>Created reels, interviews, rapid fire videos and BTS content.</li>
+          <li>Coordinated with speakers, celebrities, business leaders and the media team.</li>
+        </ul>
+      </article>
+
+      <article class="exp-card reveal">
+        <div class="exp-top"><div class="exp-icon">#</div><span class="meta">3 INSTITUTES • 5+ PAGES</span></div>
+        <h3>Social Media Handling</h3>
+        <div class="meta">DYPIMS • ED-PMA • ED CELL • DYPERF • IACSD</div>
+        <ul>
+          <li>Managed social media handles across 3 educational institutes.</li>
+          <li>Handled 5+ pages across Instagram and LinkedIn.</li>
+          <li>Created posts, reels and digital creatives and managed content flow.</li>
+          <li>Built the ED Cell social media presence from the ground up.</li>
+        </ul>
+      </article>
+
+      <article class="exp-card reveal">
+        <div class="exp-top"><div class="exp-icon">↗</div><span class="meta">EVENTS</span></div>
+        <h3>Leadership & Promotional Work</h3>
+        <div class="meta">LEADERSHIP WITH AI • DIALOGUES • NIPM</div>
+        <ul>
+          <li>Worked on digital promotions and online masterclasses with 25+ business leaders.</li>
+          <li>Supported promotional events with MCCIA, Pune Management Association, COEP alumni group and NIPM Pune.</li>
+          <li>Handled planning, coordination, people management, shoots and event coverage.</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="metric-strip reveal">
+      <div><strong>3</strong><span>Educational Institutes</span></div>
+      <div><strong>5+</strong><span>Social Media Pages</span></div>
+      <div><strong>650K+</strong><span>TEDx Views</span></div>
+      <div><strong>500K+</strong><span>TEDx Reach in 6 Days</span></div>
+    </div>
+
+    <div class="visual-group reveal">
+      <div class="visual-label"><span>01</span> SOCIAL MEDIA HANDLES</div>
+      <div class="experience-visuals social-gallery">
+        <img src="images/social-tedx.png" alt="TEDxDYPWS social media page">
+        <img src="images/social-iacsd.png" alt="IACSD social media page">
+        <img src="images/social-dypims.png" alt="DYPIMS social media page">
+        <img src="images/social-pma.png" alt="PMA DYPIMS social media page">
+      </div>
+    </div>
+
+    <div class="visual-group reveal">
+      <div class="visual-label"><span>02</span> OTHER WORK & EVENT COVERAGE</div>
+      <div class="experience-visuals work-gallery">
+        <img src="images/tedx-bts-01.jpeg" alt="TEDxDYPWS behind the scenes">
+        <img src="images/tedx-team.jpeg" alt="TEDxDYPWS team">
+        <img src="images/tedx-stage.jpeg" alt="TEDxDYPWS stage coverage">
+        <img src="images/tedx-bts-02.jpeg" alt="TEDxDYPWS behind the scenes">
+        <img src="images/leadership-audience.jpeg" alt="Leadership Dialogue event">
+        <img src="images/leadership-group.jpeg" alt="Leadership Dialogue group">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="hand kicker">06 — PROJECTS & RESEARCH</div>
+        <h2 class="display section-title">What I've<br><span class="red">Explored.</span></h2>
+      </div>
+      <p class="section-desc">Academic projects where I used marketing concepts, consumer insights and research to understand real business questions.</p>
+    </div>
+
+    <div class="project-grid">
+      <article class="project-card reveal">
+        <div class="project-number">01</div>
+        <h3>A Study on the Impact of Review Credibility, Review Quality and Review Quantity on Customer Purchase Intention</h3>
+        <p>Research on how different dimensions of electronic word of mouth influence customer purchase intention in the Indian e commerce market.</p>
+        <span class="project-type">Research • Consumer Behaviour • e WOM</span>
+        <div class="project-arrow">↗</div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-number">02</div>
+        <h3>From Technology to Thought</h3>
+        <p>Research paper exploring the role of Artificial Intelligence in students’ engagement and creativity, presented at an international conference.</p>
+        <span class="project-type">Research • AI • Student Engagement</span>
+        <div class="project-arrow">↗</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="hand kicker">07 — CERTIFICATIONS</div>
+        <h2 class="display section-title">Things I've<br><span class="red">Picked Up.</span></h2>
+      </div>
+      <p class="section-desc">Courses and certifications that added to what I was learning through college and practical work.</p>
+    </div>
+
+    <div class="cert-grid">
+      <article class="cert reveal"><div class="small">Coursera • IIM Ahmedabad</div><h3>Pre MBA Statistics</h3><p>Foundation in statistics for business studies.</p></article>
+      <article class="cert reveal"><div class="small">Marketing</div><h3>AI in Marketing</h3><p>Exploring AI applications in marketing.</p></article>
+      <article class="cert reveal"><div class="small">Aspire Solutions India</div><h3>30 Hour Soft Skills Programme</h3><p>Communication and professional skills.</p></article>
+      <article class="cert reveal"><div class="small">Google</div><h3>Fundamentals of Digital Marketing</h3><p>Digital marketing fundamentals.</p></article>
+      <article class="cert reveal"><div class="small">Udemy • 2023</div><h3>Excel: Beginner to Expert</h3><p>Excel based data and productivity skills.</p></article>
+      <article class="cert reveal"><div class="small">Product Marketing</div><h3>AI Powered Product Marketing & Market Research</h3><p>AI supported marketing and research concepts.</p></article>
+      <article class="cert reveal"><div class="small">TCS iON</div><h3>Career Edge: Young Professional</h3><p>Professional readiness and workplace skills.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="extra">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="hand kicker">08 — EXTRA CURRICULAR</div>
+        <h2 class="display section-title">Beyond<br><span class="red">The Classroom.</span></h2>
+      </div>
+      <p class="section-desc">The things that gave me a chance to create, perform, lead and work with people outside regular academics.</p>
+    </div>
+
+    <div class="split-grid">
+      <div class="panel reveal">
+        <h3>Stuff I've Been Part Of</h3>
+        <ul class="clean-list">
+          <li><strong>Karobaar 3.0:</strong> Presented “Memora”, a virtual tourism startup idea.</li>
+          <li><strong>NCC:</strong> Cadet at 21 Maharashtra Battalion, Wardha and senior who led 60 cadets.</li>
+          <li><strong>Social Awareness Campaigns:</strong> Participated in street plays around Made in India products, Save Electricity and Save Girl Child.</li>
+          <li><strong>TEDxDYPWS Youth:</strong> Social Media Team Lead and event media involvement.</li>
+        </ul>
+      </div>
+      <div class="panel reveal">
+        <h3>What I Enjoy</h3>
+        <div class="skill-cloud">
+          <span class="skill">Content Ideas</span><span class="skill">Reels</span><span class="skill">Social Media</span>
+          <span class="skill">Designing</span><span class="skill">Event Work</span><span class="skill">Branding</span>
+          <span class="skill">Shooting</span><span class="skill">Editing</span><span class="skill">Creative Campaigns</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="hand kicker">09 — ACHIEVEMENTS</div>
+        <h2 class="display section-title">A Few<br><span class="red">Wins.</span></h2>
+      </div>
+      <p class="section-desc">Not a giant trophy cabinet. Just a few things I’m genuinely happy about.</p>
+    </div>
+
+    <div class="panel reveal">
+      <div class="achievement"><div class="ach-num">01</div><p><strong>1st Prize</strong> — Crisis Courtroom Case Study Competition.</p></div>
+      <div class="achievement"><div class="ach-num">02</div><p><strong>1st Prize</strong> — Management Poster Competition.</p></div>
+      <div class="achievement"><div class="ach-num">03</div><p><strong>International Conference</strong> — Presented research paper on AI, students’ engagement and creativity.</p></div>
+      <div class="achievement"><div class="ach-num">04</div><p><strong>TEDxDYPWS Youth 2026</strong> — Social media content reached 650K+ views in two months.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container skills-wrap">
+    <div class="skills-intro reveal">
+      <div class="hand kicker">10 — SKILLS</div>
+      <h2 class="display section-title">Stuff I<br><span class="red">Can Actually Do.</span></h2>
+      <p>These are the areas I’ve worked on through projects, college initiatives, events and my internship.</p>
+    </div>
+    <div class="skill-cloud reveal">
+      <span class="skill">Building Social Media Strategies</span>
+      <span class="skill">Digital Branding</span>
+      <span class="skill">Creating Content Strategies</span>
+      <span class="skill">Social Media Handling</span>
+      <span class="skill">Graphic Designing</span>
+      <span class="skill">Creative Ideation</span>
+      <span class="skill">Content Creation</span>
+      <span class="skill">Event Promotions</span>
+      <span class="skill">Communication</span>
+      <span class="skill">Presentation</span>
+      <span class="skill">Team Management</span>
+      <span class="skill">Problem Solving</span>
+      <span class="skill">MS Excel</span>
+      <span class="skill">PowerPoint</span>
+      <span class="skill">SPSS</span>
+      <span class="skill">Tableau</span>
+      <span class="skill">Power BI</span>
+    </div>
+  </div>
+</section>
+
+<section id="creative">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="hand kicker">11 — CREATIVE WORK</div>
+        <h2 class="display section-title">Show,<br><span class="red">Don't Tell.</span></h2>
+      </div>
+      <p class="section-desc">A visual section for the work that is easier to understand when you actually see it.</p>
+    </div>
+
+    <!-- Replace the placeholder blocks with your real images. -->
+    <div class="creative-grid">
+      <div class="large reveal"><img class="work-img" src="images/tedx-bts-01.jpeg" alt="Creative work"></div>
+      <div class="reveal"><img class="work-img" src="images/tedx-team.jpeg" alt="TEDx work"></div>
+      <div class="reveal"><img class="work-img" src="images/social-dypims.png" alt="Social media work"></div>
+      <div class="reveal"><img class="work-img" src="images/tedx-bts-02.jpeg" alt="Creative work"></div>
+      <div class="reveal"><img class="work-img" src="images/leadership-group.jpeg" alt="Event work"></div>
+    </div>
+  </div>
+</section>
+
+<section id="moments">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="hand kicker">12 — MOMENTS</div>
+        <h2 class="display section-title">A Few More<br><span class="red">Moments.</span></h2>
+      </div>
+      <p class="section-desc">Snapshots from events, teams and initiatives I've been part of along the way.</p>
+    </div>
+
+    <div class="moments-grid">
+      <div class="moment-card reveal">
+        <img class="moment-photo" src="images/edc-pma-team.jpeg" alt="EDC and PMA Student Chapter team">
+        <div class="moment-caption"><p>Member of the Entrepreneurship Development Cell & Pune Management Association Student Chapter — pictured with the team at a campus event.</p></div>
+      </div>
+      <div class="moment-card reveal">
+        <img class="moment-photo" src="images/iacsd-brand-intern.jpeg" alt="IACSD Brand Management internship team">
+        <div class="moment-caption"><p>Brand Management Intern, IACSD — part of the organisation's first Marketing Team.</p></div>
+      </div>
+      <div class="moment-card reveal">
+        <img class="moment-photo" src="images/ed-bazaar-event.jpeg" alt="ED Bazaar event signage">
+        <div class="moment-caption"><p>Organised "ED Bazaar" — a college event bringing entrepreneurial ideas to life.</p></div>
+      </div>
+      <div class="moment-card reveal">
+        <img class="moment-photo" src="images/techfest-exhibitor.jpeg" alt="Tech fest exhibitor stall">
+        <div class="moment-caption"><p>Exhibitor experience at a tech fest — showcasing the "Leadership with AI" initiative.</p></div>
+      </div>
+      <div class="moment-card reveal">
+        <img class="moment-photo" src="images/prompt-pune-volunteer.jpeg" alt="The Prompt Pune 2026 volunteer team">
+        <div class="moment-caption"><p>Volunteered and led the Social Media Team at "The Prompt" — Pune Tech Fest 2026.</p></div>
+      </div>
+      <div class="moment-card reveal">
+        <img class="moment-photo" src="images/poster-competition-win.jpeg" alt="Management Poster Competition win">
+        <div class="moment-caption"><p>1st Prize — Management Poster Competition, working live with the team on the winning design.</p></div>
+      </div>
+      <div class="moment-card reveal">
+        <img class="moment-photo" src="images/runathon-volunteer-lead.jpeg" alt="Runathon 2025 volunteer team">
+        <div class="moment-caption"><p>Led a volunteer team at Runathon 2025, organised by Rotary Club Nigdi.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container reveal">
+    <div class="hand kicker">13 — LET'S CONNECT</div>
+    <h2 class="display">Let's<br><span class="red">Talk.</span></h2>
+    <p>If you're looking for someone who likes marketing, content, brands and actually getting involved, let's connect.</p>
+    <div class="contact-actions">
+      <a class="btn" href="mailto:ritiksatghare3210@gmail.com">Email Me</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/rutiksatghare/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="contact-link" href="https://www.instagram.com/rutiksatghare/?hl=en" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-flex">
+    <div>© 2026 Rutik Satghare</div>
+    <div>Built with ideas, content & a little too much curiosity.</div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById("header");
+const toggle = document.getElementById("mobileToggle");
+const nav = document.getElementById("navlinks");
+
+window.addEventListener("scroll",()=>{
+  header.classList.toggle("scrolled",window.scrollY>30);
+});
+
+toggle.addEventListener("click",()=>nav.classList.toggle("open"));
+document.querySelectorAll(".navlinks a").forEach(a=>{
+  a.addEventListener("click",()=>nav.classList.remove("open"));
+});
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
+},{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+const sections = document.querySelectorAll("main section[id]");
+const links = document.querySelectorAll(".navlinks a");
+window.addEventListener("scroll",()=>{
+  let current="";
+  sections.forEach(section=>{
+    if(window.scrollY >= section.offsetTop-180) current=section.id;
+  });
+  links.forEach(link=>{
+    link.classList.toggle("active",link.getAttribute("href")==="#"+current);
+  });
+});
+</script>
+
+</body>
+</html>
